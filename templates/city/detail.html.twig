@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+
+	<h1>City Details</h1>
+	<table>
+		<tr>
+			<th>ID</th>
+			<td>{{ city.id }}</td>
+		</tr>
+		<tr>
+			<th>City Name</th>
+			<td>{{ city.name }}</td>
+		</tr>
+
+	</table>
+
+	<form action="{{ path('city_delete', { id: city.id }) }}" method="post" style="display:inline;" onsubmit="return confirmDeletion();">
+		<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ city.id) }}">
+		<button type="submit" class="btn btn-secondary">Delete City</button>
+
+	</form>
+
+	<form action="{{ path('city_edit', { id: city.id }) }}" method="post" style="display:inline;">
+
+		<button type="submit" class="btn btn-secondary">Edit</button>
+
+	</form>
+
+
+	<a href="{{path('city_list')}}">Back to list Cities</a>
+
+{% endblock %}

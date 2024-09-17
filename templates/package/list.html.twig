@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+
+	<h1>
+		Packages
+	</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Product</th>
+				<th>Price</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for package in packages %}
+				<tr>
+					<td>{{ package.id }}</td>
+					<td>{{ package.name }}</td>
+					<td>{{ package.description }}</td>
+					<td>{{ package.product.name }}</td>
+					<td>{{package.price}}</td>
+
+					<td>
+						<form action="{{ path('package_detail', { id: package.id }) }}" method="post" style="display:inline;">
+							<button type="submit" class="btn btn-secondary">consult</button>
+						</form>
+
+						<form action="{{ path('package_edit', { id: package.id }) }}" method="post" style="display:inline;">
+							<button type="submit" class="btn btn-secondary">Edit</button>
+
+						</form>
+
+						<form action="{{ path('package_delete', { id: package.id }) }}" method="post" style="display:inline;" onsubmit="return confirmDeletion();">
+							<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ package.id) }}">
+							<button type="submit" class="btn btn-secondary">Delete</button>
+
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<form action="{{ path('package_form') }}" method="post">
+		<button type="submit" class="btn btn-primary">Add Package</button>
+
+	</form>
+{% endblock %}

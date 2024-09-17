@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+	<div class="example-wrapper">
+		<h1>Package form</h1>
+
+		{{ form_start(form) }}
+
+		<div class="form-row">
+			{{ form_label(form.name) }}:
+			{{ form_widget(form.name) }}
+		</div>
+
+		<div class="form-row">
+			{{ form_label(form.description) }}:
+			{{ form_widget(form.description) }}
+		</div>
+
+		<div class="form-row">
+			{{ form_label(form.product) }}:
+			{{ form_widget(form.product) }}
+		</div>
+
+		<div class="form-row">
+			{{ form_label(form.price) }}:
+			{{ form_widget(form.price) }}
+		</div>
+
+		<button type="submit" class="btn btn-primary">Submit</button>
+
+
+		{{ form_end(form) }}
+	</div>
+{% endblock %}

@@ -1,0 +1,127 @@
+
+
+
+
+.example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+.example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+
+/* Réinitialiser les marges et les paddings */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+/* Style de la page */
+body {
+font-family: Arial, sans-serif;
+line-height: 1.6;
+color: #333;
+background-color: #f4f4f4;
+padding: 20px;
+}
+
+/* Conteneur principal */
+.container {
+max-width: 1200px;
+margin: 0 auto;
+background: #fff;
+padding: 20px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* En-tête */
+.header {
+margin-bottom: 20px;
+background-image: url('/public/img/Bleu.jpg'); /* Chemin vers l'image */
+background-size: cover;
+background-position: center;
+height: 200px; 
+display: flex;
+align-items: center;
+justify-content: center;
+color: white; 
+text-align: center;
+}
+.header h1 {
+font-size: 2.5em;
+margin-bottom: 0;
+}
+
+.header p {
+font-size: 1.2em;
+color: #666;
+}
+
+/* Barre latérale gauche */
+.sidebar {
+width: 25%;
+float: left;
+margin-right: 20px;
+}
+
+.sidebar ul {
+list-style: none;
+}
+
+.sidebar ul li {
+margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+text-decoration: none;
+color: #333;
+padding: 10px;
+display: block;
+background: #f9f9f9;
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+
+.sidebar ul li a:hover {
+background: #eee;
+}
+
+/* Contenu principal */
+.main-content {
+width: 70%;
+float: left;
+}
+
+.main-content h2 {
+font-size: 2em;
+margin-bottom: 20px;
+}
+
+.main-content p {
+margin-bottom: 20px;
+}
+
+.main-content img {
+max-width: 100%;
+height: auto;
+}
+
+/* Pied de page */
+.footer {
+clear: both;
+margin-top: 20px;
+padding: 20px;
+background: #333;
+color: #fff;
+text-align: center;
+}
+
+/* Styles responsive */
+@media (max-width: 768px) {
+.sidebar,
+.main-content {
+    width: 100%;
+    float: none;
+}
+
+.sidebar {
+    margin-bottom: 20px;
+}
+}

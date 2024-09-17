@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+
+	<h1>
+		Clients
+	</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>City</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for client in clients %}
+				<tr>
+					<td>{{ client.id }}</td>
+					<td>{{ client.name }}</td>
+					<td>{{ client.email }}</td>
+					<td>{{ client.city.name }}</td>
+					<td>
+						<form action="{{ path('client_detail', { id: client.id }) }}" method="post" style="display:inline;">
+							<button type="submit" class="btn btn-secondary">consult</button>
+						</form>
+
+						<form action="{{ path('client_edit', { id: client.id }) }}" method="post" style="display:inline;">
+							<button type="submit" class="btn btn-secondary">Edit</button>
+						</form>
+
+						<form action="{{ path('client_delete', { id: client.id }) }}" method="post" style="display:inline;" onsubmit="return confirmDeletion();">
+							<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ client.id) }}">
+							<button type="submit" class="btn btn-secondary">Delete</button>
+						</form>
+					</td>
+
+
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<form action="{{ path('client_form') }}" method="post">
+		<button type="submit" class="btn btn-primary">Add Client</button>
+	</form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+	<h1>Edit Prospect</h1>
+
+	{{ form_start(form) }}
+
+	<div class="form-row">
+		{{ form_label(form.name) }}:
+		{{ form_widget(form.name) }}
+	</div>
+
+	<div class="form-row">
+		{{ form_label(form.Email) }}:{{ form_widget(form.Email) }}
+	</div>
+
+	<div class="form-row">
+		{{ form_label(form.city) }}:
+		{{ form_widget(form.city) }}
+	</div>
+
+
+	<button type="submit" class="btn btn-primary">Save Changes</button>
+	{{ form_end(form) }}
+
+
+{% endblock %}
